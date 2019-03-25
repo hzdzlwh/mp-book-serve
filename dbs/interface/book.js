@@ -12,7 +12,7 @@ const Comment = require('../models/comment')
 const axios = require('axios')
 
 router.post('/addUser', async function (ctx) { // 此接口写数据添加user
-  console.log(ctx)
+  console.log(ctx.request.body.name)
   const user = new User({
     name: ctx.request.body.name,
     password: ctx.request.body.password
@@ -83,6 +83,7 @@ router.get('/test', async (ctx, next) => {
 router.post('/addbook', async function(ctx, next) {
   const isbn = ctx.request.body.isbn
   const openid = ctx.request.body.openid
+  console.log(isbn)
   const res = await axios.get(`https://api.douban.com/v2/book/isbn/${isbn}`)
   /******************************************************************
     { rating: { max: 10, numRaters: 1957, average: '9.3', min: 0 },
