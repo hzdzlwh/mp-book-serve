@@ -19,4 +19,4 @@ con.on('error', console.error.bind(console, '连接数据库失败'))
 
 app.use(book.routes()).use(book.allowedMethods())
 
-app.listen(3101)
+app.listen(3002)
